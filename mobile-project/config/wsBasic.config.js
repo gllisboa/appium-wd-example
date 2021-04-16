@@ -1,35 +1,39 @@
-import wd from "wd";
+wd = require('wd');
 
 
 
 const browserStackCaps = {
             // Set your BrowserStack access credentials
-            'browserstack.user' : 'guilhermeluzlisb1',
-            'browserstack.key' : 'cJaE9sqn9xrYq9d6yZBc',
+            'browserstack.user' : 'guilisboa1',
+            'browserstack.key' : 'G6BpGGsqvkqRN47B6VNk',
+            'browserstack.debug' : true,
+            'project' : 'POC - BDD - JavaScript',
 }
 
- const IOSCaps = {
+ let IOSCaps = function (device = { model: "", system: "", version: ""}) { return {
 
         ...browserStackCaps,
 
           // Set URL of the application under test
-        'app' : 'bs://f9a958b03f510aee323280577476aa70390bc4ba',
+        'app' : 'bs://e0e69ad47906717d5a93dbee007244da7157e417',
 
         // Specify device and os_version for testing
-        'device' : 'iPhone XS',
-        'os_version' : '12',
+        'device' : device.model,
+        'os_version' : device.os_version,
 
         // Set other BrowserStack capabilities
-        'project' : 'First NodeJS project',
+
         'build' : 'Node iOS',
         'name': 'first_test'
+ }
 
 }
+
+
 
 const appiumDriver  = wd.promiseRemote("http://hub-cloud.browserstack.com/wd/hub");
 
 
 
-
-export { IOSCaps, appiumDriver}
+module.exports ={ IOSCaps, appiumDriver}
 

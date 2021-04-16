@@ -1,37 +1,69 @@
-import {appiumDriver, IOSCaps } from './wsBasic.config';
-
-let driver = null;
-let desiredCaps = null;
-
-export default class AppiumWebDriver {
+const {appiumDriver,IOSCaps} = require('./wsBasic.config.js');
 
 
-    initIOS() {
-
-        driver = appiumDriver;
-        desiredCaps = IOSCaps
-
-        console.log('Entrou na chamada initOS()')
 
 
-        driver.init(desiredCaps)
+class AppiumWebDriver {
 
-        setImplicitWaitTimeout(driver)
+    async init(device = { model: "", system: "", version: ""}) {
+
+        let driver = null
+
+        switch (device.system.toLowerCase()) {
+            case "ios":
+                driver = await this.initIOS(device)
+
+                break;
+            default:
+                break;
+
+        }
+
+        console.log('Init APP')
+        console.log(driver)
+
+        return driver
 
     }
 
 
-    setImplicitWaitTimeout(driver) {
+    async initIOS(device = { model: "", system: "", version:""}) {
 
-    driver.setImplicitWaitTimeout(5000);
+
+
+        await appiumDriver.init(IOSCaps(device))
+
+
+        console.log('initOS()')
+
+        await setImplicitWaitTimeout(appiumDriver)
+
+        return appiumDriver
 
     }
 
-    quit() {
+
+    async quit() {
 
 
-        driver.quit()
+       await appiumDriver.quit()
     }
+
 
 }
+
+
+
+
+async function setImplicitWaitTimeout(driver = appiumDriver) {
+
+    console.log('setImplicitWaitTimeout :' + driver)
+
+
+    await driver.setImplicitWaitTimeout(10000);
+
+    }
+
+
+module.exports = AppiumWebDriver;
 
