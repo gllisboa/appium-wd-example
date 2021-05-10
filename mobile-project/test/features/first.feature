@@ -10,5 +10,10 @@ Then O sistema carrega a pagina inicial corretamente
 
 Examples:
     | device | system | version |
-    | iPhone XS  | IOS | 12  |
-    | Android | Nexus 2 | 7 |
+    | Samsung Galaxy S8 Plus | Android | 7.0 |
+    | iPhone 12 Pro Max | IOS | 14 |
+
+
+
+    # | iPhone 7 | IOS | 10 |
+    # | iPhone8 | IOS | 11 |

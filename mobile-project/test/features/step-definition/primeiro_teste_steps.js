@@ -3,57 +3,54 @@ const  assert = require('assert');
 
 const AppiumWebDriver = require('../../../config/appiumWebDriver.config');
 
-const InitialPageIOS = require('../../../IOS/pages/initial.page')
+const InitialPage = require('../../../config/pages/initial.page')
+
 
 let appiumWebDriver = new AppiumWebDriver();
+let initialPage = new InitialPage();
 let driver = null;
-let initialPage = null;
+let device = null;
+let expectResult = '3';
+let resultGenerate = null;
 
 
 
-Given(`Esteja na tela inicial com o {string} com o {string} na {string}`,{timeout: 60 * 1000}, async function(string,string2,string3){
+Given(`Esteja na tela inicial com o {string} com o {string} na {string}`,{timeout: 100 * 1000}, async function(string,string2,string3){
 
-  
-    let device =  { model: string, system: string2, version: string3}
-
+   device =  await { model: string, system: string2, version: string3}
 
     driver = await appiumWebDriver.init(device)
 
-    switch(device.system.toLowerCase()) {
-        case 'ios':
-            initialPage = new InitialPageIOS();
-            break;
-        default:
-            break;
-    }
 
-    console.log('Driver apos init')
-    console.dir(driver)
+});
 
 
+When('abro o chat',{timeout: 100 * 1000}, async function(){
 
-    return  await 'pending'
+    await initialPage.clickBtnNumber1(driver, device);
+
+    await initialPage.clickBtnPlus(driver, device);
+
+    await initialPage.clickBtnNumber2(driver, device);
+
+    await initialPage.clickBtnEqual(driver, device);
+
+     resultGenerate = await initialPage.getTextLabelEqual(driver, device, expectResult);
+
+
 
 
 
 });
 
+Then("O sistema carrega a pagina inicial corretamente",{timeout: 100 * 1000}, async function(){
 
-When('abro o chat', async function(){
-
-    let teste = "teste"
-
-    console.log("Entrou no When")
-
-});
-
-Then("O sistema carrega a pagina inicial corretamente", async function(){
+    assert.strictEqual(resultGenerate,expectResult)
 
 });
 
 After(async function(){
 
-    console.log('Quit')
-    // await driver.quit();
+    await driver.quit();
 });
 
