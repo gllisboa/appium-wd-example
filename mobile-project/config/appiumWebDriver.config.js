@@ -1,4 +1,4 @@
-const {appiumDriver,IOSCaps} = require('./wsBasic.config.js');
+const {appiumDriver,IOSCaps, AndroidCaps} = require('./wsBasic.config.js');
 
 
 
@@ -15,14 +15,14 @@ class AppiumWebDriver {
 
                 break;
             default:
+                driver = await this.initAndroid(device)
+
                 break;
 
         }
 
-        console.log('Init APP')
-        console.log(driver)
 
-        return driver
+        return await driver
 
     }
 
@@ -30,17 +30,24 @@ class AppiumWebDriver {
     async initIOS(device = { model: "", system: "", version:""}) {
 
 
-
         await appiumDriver.init(IOSCaps(device))
-
-
-        console.log('initOS()')
 
         await setImplicitWaitTimeout(appiumDriver)
 
-        return appiumDriver
+        return await appiumDriver
 
     }
+
+    async initAndroid(device = { model: "", system: "", version:""}) {
+
+        await appiumDriver.init(AndroidCaps(device))
+
+        await setImplicitWaitTimeout(appiumDriver)
+
+        return await appiumDriver
+
+    }
+
 
 
     async quit() {
@@ -56,8 +63,6 @@ class AppiumWebDriver {
 
 
 async function setImplicitWaitTimeout(driver = appiumDriver) {
-
-    console.log('setImplicitWaitTimeout :' + driver)
 
 
     await driver.setImplicitWaitTimeout(10000);
