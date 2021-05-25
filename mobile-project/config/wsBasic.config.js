@@ -1,5 +1,8 @@
 wd = require('wd');
 
+const Context = require('../state/context');
+let context = new Context();
+
 
 
 const browserStackCaps = {
@@ -10,7 +13,7 @@ const browserStackCaps = {
             'project' : 'POC - BDD - JavaScript - CHATBOT - RASA',
 }
 
- let IOSCaps = function (device = { model: "", system: "", version: ""}) { return {
+ let IOSCaps = function () { return {
 
         ...browserStackCaps,
 
@@ -18,8 +21,8 @@ const browserStackCaps = {
         'app' : 'bs://e7fc56bd797cc03dcb07550008c86f223c8c0939',
 
         // Specify device and os_version for testing
-        'device' : device.model,
-        'os_version' : device.version,
+        'device' : context.getDevice().model,
+        'os_version' : context.getDevice().version,
 
         // Set other BrowserStack capabilities
 
@@ -31,17 +34,17 @@ const browserStackCaps = {
 
 
 
-let AndroidCaps = function (device = { model: "", system: "", version: ""}) { return {
+let AndroidCaps = function () { return {
 
   ...browserStackCaps,
 
     // Set URL of the application under test
-  'app' : 'bs://44ae821fa5e690b6fc427409594f0ea522b5ea0f',
+    "app": "bs://44ae821fa5e690b6fc427409594f0ea522b5ea0f",
 
   // Specify device and os_version for testing
-  'device' : device.model,
+  'device' : context.getDevice().model,
   'platformName': 'Android',
-  'platformVersion': device.version,
+  'platformVersion': context.getDevice().version,
 
   // Set other BrowserStack capabilities
   'build' : 'ChatBot-Mobile - Android',

@@ -1,26 +1,60 @@
+const Context = require('../../state/context')
+
+let context = new Context();
+
 class InitialElements {
 
 
-    //Dialog Guide
-     btnYesSeeGuideDialog () {  return 'Yes'  }
+    // //Dialog Guide
+    //  btnYesSeeGuideDialog () {
 
-     btnNoSeeGuideDialog () {  return 'No'  }
+    //      let driver = context.getDriver();
+    //      let xPath = 'Yes';
+
+    //      return driver.elementByXPath(xPath);
+
+    //       }
+
+    //  btnNoSeeGuideDialog () {  return 'No'  }
 
 
 
     //Numbers Painel
-    btnNumber1 () {  return '//XCUIElementTypeApplication[@name=\"Calculator HD\"]/XCUIElementTypeWindow/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeButton[17]'  }
+    async btnNumber1 () {
 
-    btnNumber2 () { return '//XCUIElementTypeApplication[@name=\"Calculator HD\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeButton[18]'}
+        let xPath = '//XCUIElementTypeApplication[@name=\"Calculator HD\"]/XCUIElementTypeWindow/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeButton[17]';
+
+        return context.getDriver().elementByXPath(xPath);
+
+
+    }
+
+    btnNumber2 () {
+        let xPath = '//XCUIElementTypeApplication[@name=\"Calculator HD\"]/XCUIElementTypeWindow/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeButton[18]';
+
+        return context.getDriver().elementByXPath(xPath);
+    }
 
 
     //Calc Btns
 
-    btnPlus () { return '//XCUIElementTypeApplication[@name=\"Calculator HD\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeButton[16]'}
+    btnPlus () {
+        let xPath = '//XCUIElementTypeApplication[@name=\"Calculator HD\"]/XCUIElementTypeWindow/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeButton[16]';
 
-    btnEqual() { return '//XCUIElementTypeApplication[@name=\"Calculator HD\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeButton[23]'}
+        return context.getDriver().elementByXPath(xPath);
+    }
 
-    labelEqual (expectResult = 0) { return `//XCUIElementTypeStaticText[@name=\"${expectResult}\"]`}
+    btnEqual() {
+        let xPath = '//XCUIElementTypeApplication[@name=\"Calculator HD\"]/XCUIElementTypeWindow/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeButton[23]';
+
+        return context.getDriver().elementByXPath(xPath);
+    }
+
+    labelEqual (expectResult = 0) {
+        let xPath = `//XCUIElementTypeStaticText[@name=\"${expectResult}\"]`;
+
+        return context.getDriver().elementByXPath(xPath);
+    }
 
 
 }
