@@ -4,11 +4,11 @@ Feature: First Tests
      aplicavel para qualquer app com a diversidade de sistemas e suas versões
 
 Scenario: Abrir APP
-Given Esteja na tela inicial com o "<device>" com o "<system>" na "<version>"
+Given Esteja na tela inicial
 When abro o chat
 Then O sistema carrega a pagina inicial corretamente
 
-Examples:
-    | device | system | version |
-    | Samsung Galaxy S8 Plus | Android | 7.0 |
-    | iPhone 12 Pro Max | IOS | 14 |
+# Examples:
+#     | device | system | version |
+#     | Samsung Galaxy S8 Plus | Android | 7.0 |
+#     | iPhone 12 Pro Max | IOS | 14 |

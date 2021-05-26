@@ -16,13 +16,12 @@ let resultGenerate = null;
 
 
 
-Given(`Esteja na tela inicial com o {string} com o {string} na {string}`,{timeout: 100 * 1000}, async function(string,string2,string3){
+Given(`Esteja na tela inicial`,{timeout: 100 * 1000}, async function(){
 
-   device =  await { model: string, system: string2, version: string3}
-
-   await context.setDevice(device);
+   await context.setDevice(this.device);
 
    console.log("Given")
+   console.dir(this.device)
 
    await appiumWebDriver.init()
 
