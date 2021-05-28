@@ -6,7 +6,7 @@ class InitialElements {
 
 
  //Numbers Painel
-   async btnNumber1 () {
+   btnNumber1 () {
         let id = 'com.google.android.calculator:id/digit_1';
 
         return  context.getDriver().elementById(id)
