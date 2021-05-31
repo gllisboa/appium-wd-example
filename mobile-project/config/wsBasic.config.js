@@ -4,11 +4,13 @@ const Context = require('../state/context');
 let context = new Context();
 
 
+let secrets = require('./files/secrets.json')
+
 
 const browserStackCaps = {
             // Set your BrowserStack access credentials
-            'browserstack.user' : 'ctlglisboa_qW9isL',
-            'browserstack.key' : 'GSxUBJsFqF5HyWR2AYez',
+            'browserstack.user' : secrets.browserstackuser,
+            'browserstack.key'  : secrets.browserstackkey,
             'browserstack.debug' : true,
             'project' : 'POC - BDD - JavaScript - CHATBOT - RASA',
 }

@@ -15,12 +15,11 @@ class InitialPage {
 
    async clickBtnNumber1() {
 
-        let btnNumber1 = null;
 
         if (context.getDevice().system.toLocaleLowerCase() == 'ios') {
-            btnNumber1 = await initialPageIOSElements.btnNumber1();
+            var btnNumber1 = await initialPageIOSElements.btnNumber1();
         }else {
-            btnNumber1 = await initialPageAndroidElements.btnNumber1();
+            var btnNumber1 = await initialPageAndroidElements.btnNumber1();
         }
 
         await btnNumber1.click();
@@ -30,12 +29,10 @@ class InitialPage {
 
     async clickBtnNumber2() {
 
-        let btnNumber2 = null;
-
         if (context.getDevice().system.toLocaleLowerCase() == 'ios') {
-            btnNumber2 = await initialPageIOSElements.btnNumber2();
+            var btnNumber2 = await initialPageIOSElements.btnNumber2();
         }else {
-            btnNumber2 = await initialPageAndroidElements.btnNumber2();
+            var btnNumber2 = await initialPageAndroidElements.btnNumber2();
         }
 
         await btnNumber2.click();
@@ -45,12 +42,10 @@ class InitialPage {
 
     async clickBtnPlus() {
 
-        let btnPlus = null;
-
         if (context.getDevice().system.toLocaleLowerCase() == 'ios') {
-            btnPlus = await initialPageIOSElements.btnPlus();
+            var btnPlus = await initialPageIOSElements.btnPlus();
         }else {
-            btnPlus = await initialPageAndroidElements.btnPlus();
+            var btnPlus = await initialPageAndroidElements.btnPlus();
         }
 
         await btnPlus.click();
@@ -58,24 +53,24 @@ class InitialPage {
 
     async clickBtnEqual() {
 
-        let btnEqual = null;
-
         if (context.getDevice().system.toLocaleLowerCase() == 'ios') {
-            btnEqual = await initialPageIOSElements.btnEqual();
+            var btnEqual = await initialPageIOSElements.btnEqual();
         }else {
-            btnEqual = await initialPageAndroidElements.btnEqual();
+            var btnEqual = await initialPageAndroidElements.btnEqual();
         }
 
         await btnEqual.click();
     }
 
-    async getTextLabelEqual(driver, device = { model: "", system: "", version: ""}, expectResult = 0) {
+    async getTextLabelEqual(expectResult = 0) {
 
-        if (device.system.toLocaleLowerCase() == 'ios') {
-            return await initialPageIOS.getTextLabelEqual(driver, expectResult)
+        if (context.getDevice().system.toLocaleLowerCase() == 'ios') {
+            var textLabel = await initialPageIOSElements.resultLabel(expectResult);
         }else {
-            return await initialPageAndroid.getTextLabelEqual(driver)
+            var textLabel = await initialPageAndroidElements.resultLabel();
         }
+
+        return await textLabel.text();
     }
 
 

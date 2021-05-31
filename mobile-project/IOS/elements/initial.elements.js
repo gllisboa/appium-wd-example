@@ -5,20 +5,6 @@ let context = new Context();
 class InitialElements {
 
 
-    // //Dialog Guide
-    //  btnYesSeeGuideDialog () {
-
-    //      let driver = context.getDriver();
-    //      let xPath = 'Yes';
-
-    //      return driver.elementByXPath(xPath);
-
-    //       }
-
-    //  btnNoSeeGuideDialog () {  return 'No'  }
-
-
-
     //Numbers Painel
     async btnNumber1 () {
 
@@ -50,7 +36,7 @@ class InitialElements {
         return context.getDriver().elementByXPath(xPath);
     }
 
-    labelEqual (expectResult = 0) {
+    resultLabel (expectResult = 0) {
         let xPath = `//XCUIElementTypeStaticText[@name=\"${expectResult}\"]`;
 
         return context.getDriver().elementByXPath(xPath);

@@ -7,8 +7,3 @@ Scenario: Abrir APP
 Given Esteja na tela inicial
 When abro o chat
 Then O sistema carrega a pagina inicial corretamente
-
-# Examples:
-#     | device | system | version |
-#     | Samsung Galaxy S8 Plus | Android | 7.0 |
-#     | iPhone 12 Pro Max | IOS | 14 |
