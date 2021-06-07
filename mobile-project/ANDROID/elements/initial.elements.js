@@ -13,19 +13,19 @@ class InitialElements {
 
     }
 
-    btnNumber2 () {  
+    btnNumber2 () {
         let id = 'com.google.android.calculator:id/digit_2';
 
         return  context.getDriver().elementById(id)
     }
 
-    btnPlus () { 
+    btnPlus () {
         let accessibilityId = 'plus';
 
         return  context.getDriver().elementByAccessibilityId(accessibilityId)
     }
 
-    btnEqual () { 
+    btnEqual () {
         let accessibilityId = 'equals';
 
         return  context.getDriver().elementByAccessibilityId(accessibilityId)

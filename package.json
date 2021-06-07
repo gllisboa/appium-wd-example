@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "cucumber-js test",
-    "android-ios": "cucumber-js mobile-project\test --world-parameters '{\"device\":{ \"model\": \"Samsung Galaxy S8\" , \"system\":\"Android\" , \"version\": \"7.0\"} }'  && cucumber-js mobile-project\test --world-parameters '{\"device\":{ \"model\": \"iPhone 12 Pro Max\" , \"system\":\"IOS\" , \"version\": \"14.0\"} }'",
-    "ios": "cucumber-js mobile-project\test --world-parameters '{\"device\":{ \"model\": \"iPhone 12 Pro Max\" , \"system\":\"IOS\" , \"version\": \"14.0\"} }'",
-    "android": "cucumber-js mobile-project\test --world-parameters '{\"device\":{ \"model\": \"Samsung Galaxy S8\" , \"system\":\"Android\" , \"version\": \"7.0\"} }'"
+    "android-ios": "cucumber-js mobile-project\test --world-parameters {\\\"device\\\":{\\\"model\\\":\\\"iPhone12Pro\\\",\\\"system\\\":\\\"ios\\\",\\\"version\\\":\\\"14.0\\\"}} && cucumber-js mobile-project\test --world-parameters {\\\"device\\\":{\\\"model\\\":\\\"GooglePixel3\\\",\\\"system\\\":\\\"Android\\\",\\\"version\\\":\\\"9.0\\\"}}",
+    "ios": "cucumber-js mobile-project\test --world-parameters {\\\"device\\\":{\\\"model\\\":\\\"iPhone12Pro\\\",\\\"system\\\":\\\"ios\\\",\\\"version\\\":\\\"14.0\\\"}}",
+    "android": "cucumber-js mobile-project\test --world-parameters {\\\"device\\\":{\\\"model\\\":\\\"GooglePixel3\\\",\\\"system\\\":\\\"Android\\\",\\\"version\\\":\\\"9.0\\\"}}"
   },
   "keywords": [],
   "author": "",
