@@ -68,6 +68,8 @@ Repetir os mesmos passos do .apk subistituindo o <font color='DarkViolet'>{custo
 - 
 https://www.browserstack.com/docs/app-automate/appium/upload-app-from-filesystem
 
+https://www.browserstack.com/docs/app-automate/appium/getting-started/java/testng/manage-apps/list-apps
+
 
 
 ## 5 - Abrir o Appium Desktop validar sessão do Browser Stack
