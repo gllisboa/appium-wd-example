@@ -132,9 +132,33 @@ Agora dentro do arquivo **secrets.json** você deve alterar o browserstackuser ,
 # 7 - Assistir o Vídeo Explicativo do Projeto
 <iframe width="560" height="315" src="https://www.youtube.com/embed/R-l5eLHhPJY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+# 8 - Capturar Elementos do Seu Projeto Real
+
+Agora você deve capturar os elementos do seu aplicativo real e criar a page dentro de **mobile-project\config\pages** e criar o retorno dos elementos Android e iOS da sua aplicação real em **mobile-project\ANDROID\elements** e **mobile-project\IOS\elements**
 
 
 
+![enter image description here](https://i.imgur.com/NY7gdg2.png)
+
+![enter image description here](https://i.imgur.com/0uY5SLz.png)
 
 
+Como Capturar os Elementos da Minha Aplicação Usando o Appium Desktop
+-
+Você deve subir o(s) seu(s) app(s) real(ais) em seu BrowserStack, já demonstrado no **passo 4** dessa documentação, iniciar o appium desktop com seu app real, descrito no **passo 5**
+
+Agora vamos selecionar o modo de gravação
+![enter image description here](https://i.imgur.com/Fk6t0HT.png)
+
+Realizar as ações selecionando os elementos e clicando em TAP
+
+![enter image description here](https://i.imgur.com/8X6tAsy.png)
+
+Na sessão **Recorder** selecionar a opção **JS - WD (Promise)** e lá o Appium Desktop vai gerar o código com o seletor e o método de  busca do webdriver do Appium
+
+![enter image description here](https://i.imgur.com/CfnQ5qY.png)
+
+# Obrigado !
+Meu Linkedin:
+ https://www.linkedin.com/in/guilherme-luz-lisboa-7370b1106/
 
