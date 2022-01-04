@@ -1,2 +1,3 @@
 node_modules/
 mobile-project/config/files/secrets.json
+package-lock.json
