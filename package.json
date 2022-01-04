@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "cucumber-js test",
-    "android-ios": "cucumber-js mobile-project\test --world-parameters {\\\"device\\\":{\\\"model\\\":\\\"iPhone12Pro\\\",\\\"system\\\":\\\"ios\\\",\\\"version\\\":\\\"14.0\\\"}} && cucumber-js mobile-project\test --world-parameters {\\\"device\\\":{\\\"model\\\":\\\"GooglePixel3\\\",\\\"system\\\":\\\"Android\\\",\\\"version\\\":\\\"9.0\\\"}}",
-    "ios": "cucumber-js mobile-project\test --world-parameters {\\\"device\\\":{\\\"model\\\":\\\"iPhone12Pro\\\",\\\"system\\\":\\\"ios\\\",\\\"version\\\":\\\"14.0\\\"}}",
-    "android": "cucumber-js mobile-project\test --world-parameters {\\\"device\\\":{\\\"model\\\":\\\"GooglePixel3\\\",\\\"system\\\":\\\"Android\\\",\\\"version\\\":\\\"9.0\\\"}}"
+    "android-ios": "npm run ios && npm run android",
+    "ios": "MODEL=iPhone12Pro SYSTEM=ios VERSION=14.0 cucumber-js mobile-project\test",
+    "android": "MODEL=GooglePixel3 SYSTEM=Android VERSION=9.0 cucumber-js mobile-project\test  "
   },
   "keywords": [],
   "author": "",
