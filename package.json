@@ -6,8 +6,8 @@
   "scripts": {
     "test": "cucumber-js test",
     "android-ios": "npm run ios && npm run android",
-    "ios": "MODEL=iPhone12Pro SYSTEM=ios VERSION=14.0 cucumber-js mobile-project\test",
-    "android": "MODEL=GooglePixel3 SYSTEM=Android VERSION=9.0 cucumber-js mobile-project\test  "
+    "ios": "MODEL=iPhone12Pro SYSTEM=ios VERSION=14.0 cucumber-js mobile-project/test",
+    "android": "MODEL=GooglePixel3 SYSTEM=Android VERSION=9.0 cucumber-js mobile-project/test  "
   },
   "keywords": [],
   "author": "",
@@ -15,6 +15,10 @@
   "dependencies": {
     "assert": "^2.0.0",
     "cucumber": "^7.0.0-rc.0",
+    "react-scripts": "^5.0.0",
     "wd": "^1.14.0"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^8.0.0-rc.1"
   }
 }
