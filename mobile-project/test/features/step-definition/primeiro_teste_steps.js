@@ -1,17 +1,18 @@
-const { Given, When, Then } = require('@cucumber/cucumber');
+const { Given, When, Then, After } = require('@cucumber/cucumber');
 const assert = require('assert');
 
 const AppiumWebDriver = require('../../../config/appiumWebDriver.config');
-let appiumWebDriver = new AppiumWebDriver();
 
 const InitialPage = require('../../../config/pages/initial.page')
+
 let initialPage = new InitialPage();
 
 let expectResult = '3';
 let resultGenerate = null;
 
+
 Given(`Esteja na tela inicial`, { timeout: 100 * 1000 }, async function () {
-    await appiumWebDriver.init()
+    await AppiumWebDriver.init()
 });
 
 When('abro o chat', { timeout: 100 * 1000 }, async function () {
@@ -24,5 +25,10 @@ When('abro o chat', { timeout: 100 * 1000 }, async function () {
 });
 
 Then("O sistema carrega a pagina inicial corretamente", { timeout: 100 * 1000 }, async function () {
-    await assert.strictEqual(resultGenerate, expectResult)
+    assert.strictEqual(resultGenerate, expectResult)
 });
+
+After(async function () {
+    await AppiumWebDriver.quit()
+});
+

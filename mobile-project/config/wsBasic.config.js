@@ -1,7 +1,8 @@
 wd = require('wd');
 
-const Context = require('../state/context');
-let context = new Context();
+const MODEL = process.env.MODEL
+const VERSION = process.env.VERSION
+const SYSTEM = process.env.SYSTEM
 
 let secrets = require('./files/secrets.json')
 
@@ -10,7 +11,7 @@ const browserStackCaps = {
   'browserstack.user': secrets.browserstackuser,
   'browserstack.key': secrets.browserstackkey,
   'browserstack.debug': true,
-  'project': 'POC - BDD - JavaScript - CHATBOT - RASA',
+  'project': 'POC - BDD - JavaScript',
 }
 
 let IOSCaps = function () {
@@ -22,11 +23,9 @@ let IOSCaps = function () {
     'app': secrets.app_url_ios,
 
     // Specify device and os_version for testing
-    'device': context.getDevice().model,
-    'os_version': context.getDevice().version,
-
-    // Set other BrowserStack capabilities
-    'build': 'ChatBot-Mobile - IOS',
+    'device': MODEL,
+    'os_version': VERSION,
+    'build': 'Mobile - IOS',
     'name': 'first_test'
   }
 
@@ -41,12 +40,12 @@ let AndroidCaps = function () {
     "app": secrets.app_url_android,
 
     // Specify device and os_version for testing
-    'device': context.getDevice().model,
+    'device': MODEL,
     'platformName': 'Android',
-    'platformVersion': context.getDevice().version,
+    'platformVersion': VERSION,
 
     // Set other BrowserStack capabilities
-    'build': 'ChatBot-Mobile - Android',
+    'build': 'Mobile - Android',
     'name': 'first_test'
   }
 

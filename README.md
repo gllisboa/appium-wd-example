@@ -1,4 +1,4 @@
-# Automação Multiplataforma (IOS e Android Nativos) com appium.io  e vanilla JS
+# Automação Multiplataforma (IOS e Android , Aplicativos Nativos) com appium.io  e vanilla JS
 
  
 
@@ -10,7 +10,7 @@ Este projeto tem como foco fornecer um template para desenvolver uma suíte de t
  - Uma conta no https://www.browserstack.com/live
  - Baixar e Instalar [Appium Desktop](https://github.com/appium/appium-desktop/releases/latest)
  - Baixar e Instalar [Node.js](https://nodejs.org/pt-br/download/)
- - Baixar os Aplicativos exemplos para [Android(.apk)](https://nodejs.org/pt-br/download/) e [IOS(.ipa)](https://drive.google.com/file/d/1JL8WszHrovaZWBWBv02pjjErbotJ9DWp/view?usp=sharing)
+ - Baixar os Aplicativos exemplos para [Android(.apk)](https://drive.google.com/file/d/1j8K3yRtkDqDROiKS5PXRWJ5nDHctkm6l/view?usp=sharing) e [IOS(.ipa)](https://drive.google.com/file/d/1JL8WszHrovaZWBWBv02pjjErbotJ9DWp/view?usp=sharing)
  - Java >= 8.0 ** 
  - Android SDK **
 

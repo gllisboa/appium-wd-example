@@ -1,42 +1,35 @@
 const { appiumDriver, IOSCaps, AndroidCaps } = require('./wsBasic.config.js');
-const Context = require('../state/context');
-let context = new Context();
+const SYSTEM = process.env.SYSTEM
+global.driver = ""
 
 const { Before, After } = require('@cucumber/cucumber');
 
-Before(async function () {
-    await context.setDevice(this.device);
-})
-
-After(async function () {
-    await context.getDriver().quit()
-})
 class AppiumWebDriver {
 
-    async init() {
-        switch (context.getDevice().system.toLowerCase()) {
+    static async init() {
+
+        switch (SYSTEM.toLowerCase()) {
             case "ios":
                 await appiumDriver.init(IOSCaps());
-                context.setDriver(appiumDriver);
                 break;
 
             default:
                 await appiumDriver.init(AndroidCaps());
-                context.setDriver(appiumDriver);
                 break;
         }
 
+        global.driver = appiumDriver
         await setImplicitWaitTimeout()
     }
 
-    async quit() {
-        let driver = context.getDriver()
+    static async quit() {
+        let driver = global.driver
         await driver.quit()
     }
 }
 
 async function setImplicitWaitTimeout() {
-    let driver = await context.getDriver()
+    let driver = global.driver
     await driver.setImplicitWaitTimeout(10000)
 }
 

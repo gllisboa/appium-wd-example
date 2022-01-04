@@ -1,11 +1,12 @@
-const Context = require('../state/context')
-let context = new Context();
+
+const SYSTEM = process.env.SYSTEM
 
 module.exports = {
 
     getElement(element) {
+        let driver = global.driver
 
-        if (context.getDevice().system.toLocaleLowerCase() == 'ios') {
+        if (SYSTEM == 'ios') {
             element = element.ios
         } else {
             element = element.android
@@ -13,13 +14,13 @@ module.exports = {
 
         switch (element.type) {
             case 'id':
-                return context.getDriver().elementById(element.selector)
+                return driver.elementById(element.selector)
 
             case 'accessibility':
-                return context.getDriver().elementByAccessibilityId(element.selector)
+                return driver.elementByAccessibilityId(element.selector)
 
             case 'xpath':
-                return context.getDriver().elementByXPath(element.selector)
+                return driver.elementByXPath(element.selector)
 
             default:
                 console.log('Erro - Falha ao capturar elemento.')
